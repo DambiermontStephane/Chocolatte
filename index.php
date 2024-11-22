@@ -1,3 +1,5 @@
+<?php date_default_timezone_set('Europe/Brussels')?>
+
 <!doctype html>
 <html lang="en">
     <head>
@@ -7,7 +9,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Barista Cafe HTML CSS Template</title>
+        <title><?= 'Chocolatte '.date('j/m/Y H:i:s');?></title>
 
         <!-- CSS FILES -->                
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,7 +44,7 @@ Bootstrap 5 HTML CSS Template
                     <div class="container">
                         <a class="navbar-brand d-flex align-items-center" href="index.html">
                             <img src="images/coffee-beans.png" class="navbar-brand-image img-fluid" alt="Barista Cafe Template">
-                            Barista
+                            <?= 'Chocolatte ';?>
                         </a>
         
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
