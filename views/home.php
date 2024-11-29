@@ -44,7 +44,7 @@ Bootstrap 5 HTML CSS Template
                     <div class="container">
                         <a class="navbar-brand d-flex align-items-center" href="index.html">
                             <img src="images/coffee-beans.png" class="navbar-brand-image img-fluid" alt="Barista Cafe Template">
-                            <?= 'Chocolatte ';?>
+                            <?= 'Bon café';?>
                         </a>
         
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -93,7 +93,7 @@ Bootstrap 5 HTML CSS Template
                             <div class="col-lg-6 col-12 mx-auto">
                                 <em class="small-text">welcome to Barista.co</em>
                                 
-                                <h1><?= 'Chocolatte ';?></h1>
+                                <h1><?= 'B ';?></h1>
 
                                 <p class="text-white mb-4 pb-lg-2">
                                     your <em>favourite</em> coffee daily lives.
