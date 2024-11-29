@@ -10,7 +10,6 @@
         <meta name="author" content="">
 
         <title><?= 'Chocolatte '.date('j/m/Y H:i:s');?></title>
-        <link rel="icon" type="image/x-icon" href="./images/5635557.jpg">
 
         <!-- CSS FILES -->                
         <link rel="preconnect" href="https://fonts.googleapis.com">
