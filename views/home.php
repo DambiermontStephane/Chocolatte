@@ -44,7 +44,7 @@ Bootstrap 5 HTML CSS Template
                     <div class="container">
                         <a class="navbar-brand d-flex align-items-center" href="index.html">
                             <img src="images/coffee-beans.png" class="navbar-brand-image img-fluid" alt="Barista Cafe Template">
-                            <?= 'Bon café';?>
+                            <?= 'Barista';?>
                         </a>
         
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -91,12 +91,12 @@ Bootstrap 5 HTML CSS Template
                         <div class="row align-items-center">
 
                             <div class="col-lg-6 col-12 mx-auto">
-                                <em class="small-text">welcome to Barista.co</em>
+                                <em class="small-text"><?= $pre_title ;?></em>
                                 
-                                <h1><?= 'B ';?></h1>
+                                <h1><?= $title ;?></h1>
 
                                 <p class="text-white mb-4 pb-lg-2">
-                                    your <em>favourite</em> coffee daily lives.
+                                    <?= $under_title; ?>
                                 </p>
 
                                 <a class="btn custom-btn custom-border-btn smoothscroll me-3" href="#section_2">
@@ -161,80 +161,27 @@ Bootstrap 5 HTML CSS Template
                                 <h2 class="text-white">Meet People</h2>
                             </div>
 
-                            <div class="col-lg-3 col-md-6 col-12 mb-4">
-                                <div class="team-block-wrap">
-                                    <div class="team-block-info d-flex flex-column">
-                                        <div class="d-flex mt-auto mb-3">
-                                            <h4 class="text-white mb-0">Steve</h4>
-
-                                            <p class="badge ms-4"><em>Boss</em></p>
-                                        </div>
-
-                                        <p class="text-white mb-0">your favourite coffee daily lives tempor.</p>
-                                    </div>
-
-                                    <div class="team-block-image-wrap">
-                                        <img src="images/team/portrait-elegant-old-man-wearing-suit.jpg" class="team-block-image img-fluid" alt="">
-                                    </div>
-                                </div>
-                            </div>
+                            <?php foreach($employees AS $index => $employee): ?>
 
                             <div class="col-lg-3 col-md-6 col-12 mb-4">
                                 <div class="team-block-wrap">
                                     <div class="team-block-info d-flex flex-column">
                                         <div class="d-flex mt-auto mb-3">
-                                            <h4 class="text-white mb-0">Sandra</h4>
+                                            <h4 class="text-white mb-0"><?=$employee->name?></h4>
 
-                                            <p class="badge ms-4"><em>Manager</em></p>
+                                            <p class="badge ms-4"><em><?=$employee->job?></em></p>
                                         </div>
 
-                                        <p class="text-white mb-0">your favourite coffee daily lives.</p>
+                                        <p class="text-white mb-0"><?=$employee->description?></p>
                                     </div>
 
                                     <div class="team-block-image-wrap">
-                                        <img src="images/team/cute-korean-barista-girl-pouring-coffee-prepare-filter-batch-brew-pour-working-cafe.jpg" class="team-block-image img-fluid" alt="">
+                                        <img src="<?=$employee->img?>" class="team-block-image img-fluid" alt="Image de <?=$employee->name?>">
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="col-lg-3 col-md-6 col-12 mb-4">
-                                <div class="team-block-wrap">
-                                    <div class="team-block-info d-flex flex-column">
-                                        <div class="d-flex mt-auto mb-3">
-                                            <h4 class="text-white mb-0">Jackson</h4>
-
-                                            <p class="badge ms-4"><em>Senior</em></p>
-                                        </div>
-
-                                        <p class="text-white mb-0">your favourite coffee daily lives.</p>
-                                    </div>
-
-                                    <div class="team-block-image-wrap">
-                                        <img src="images/team/small-business-owner-drinking-coffee.jpg" class="team-block-image img-fluid" alt="">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-3 col-md-6 col-12">
-                                <div class="team-block-wrap">
-                                    <div class="team-block-info d-flex flex-column">
-                                        <div class="d-flex mt-auto mb-3">
-                                            <h4 class="text-white mb-0">Michelle</h4>
-
-                                            <p class="badge ms-4"><em>Barista</em></p>
-                                        </div>
-
-                                        <p class="text-white mb-0">your favourite coffee daily consectetur.</p>
-                                    </div>
-
-                                    <div class="team-block-image-wrap">
-                                        <img src="images/team/smiley-business-woman-working-cashier.jpg" class="team-block-image img-fluid" alt="">
-                                    </div>
-                                </div>
-                            </div>
-
+                            <?php endforeach; ?>
                         </div>
-                    </div>
                 </section>
 
 
@@ -427,23 +374,24 @@ Bootstrap 5 HTML CSS Template
                             </div>
 
                             <div class="timeline">
-                                <div class="timeline-container timeline-container-left">
+                                <?php foreach($reviews as $index => $review): ?>
+                                <div class="timeline-container timeline-container-<?= ($review->id % 2 == 0) ? 'right':'left' ?>">
                                     <div class="timeline-content">
                                         <div class="reviews-block">
                                             <div class="reviews-block-image-wrap d-flex align-items-center">
-                                                <img src="images/reviews/young-woman-with-round-glasses-yellow-sweater.jpg" class="reviews-block-image img-fluid" alt="">
+                                                <img src="<?= $review->avatar_img ?>" class="reviews-block-image img-fluid" alt="">
 
                                                 <div class="">
-                                                    <h6 class="text-white mb-0">Sandra</h6>
+                                                    <h6 class="text-white mb-0"><?=$review->customer?></h6>
                                                     <em class="text-white"> Customers</em>
                                                 </div>
                                             </div>
 
                                             <div class="reviews-block-info">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                                <p><?=$review->content?></p>
 
                                                 <div class="d-flex border-top pt-3 mt-4">
-                                                    <strong class="text-white">4.5 <small class="ms-2">Rating</small></strong>
+                                                    <strong class="text-white"><?=number_format($review->rating/10, 1)?> <small class="ms-2">Rating</small></strong>
 
                                                     <div class="reviews-group ms-auto">
                                                         <i class="bi-star-fill"></i>
@@ -457,68 +405,7 @@ Bootstrap 5 HTML CSS Template
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class="timeline-container timeline-container-right">
-                                    <div class="timeline-content">
-                                        <div class="reviews-block">
-                                            <div class="reviews-block-image-wrap d-flex align-items-center">
-                                                <img src="images/reviews/senior-man-white-sweater-eyeglasses.jpg" class="reviews-block-image img-fluid" alt="">
-
-                                                <div class="">
-                                                    <h6 class="text-white mb-0">Don</h6>
-                                                    <em class="text-white"> Customers</em>
-                                                </div>
-                                            </div>
-
-                                            <div class="reviews-block-info">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-
-                                                <div class="d-flex border-top pt-3 mt-4">
-                                                    <strong class="text-white">4.5 <small class="ms-2">Rating</small></strong>
-
-                                                    <div class="reviews-group ms-auto">
-                                                        <i class="bi-star-fill"></i>
-                                                        <i class="bi-star-fill"></i>
-                                                        <i class="bi-star-fill"></i>
-                                                        <i class="bi-star-fill"></i>
-                                                        <i class="bi-star"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="timeline-container timeline-container-left">
-                                    <div class="timeline-content">
-                                        <div class="reviews-block">
-                                            <div class="reviews-block-image-wrap d-flex align-items-center">
-                                                <img src="images/reviews/young-beautiful-woman-pink-warm-sweater-natural-look-smiling-portrait-isolated-long-hair.jpg" class="reviews-block-image img-fluid" alt="">
-
-                                                <div class="">
-                                                    <h6 class="text-white mb-0">Olivia</h6>
-                                                    <em class="text-white"> Customers</em>
-                                                </div>
-                                            </div>
-
-                                            <div class="reviews-block-info">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-
-                                                <div class="d-flex border-top pt-3 mt-4">
-                                                    <strong class="text-white">4.5 <small class="ms-2">Rating</small></strong>
-
-                                                    <div class="reviews-group ms-auto">
-                                                        <i class="bi-star-fill"></i>
-                                                        <i class="bi-star-fill"></i>
-                                                        <i class="bi-star-fill"></i>
-                                                        <i class="bi-star-fill"></i>
-                                                        <i class="bi-star"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <?php endforeach; ?>
                             </div>
 
                         </div>
